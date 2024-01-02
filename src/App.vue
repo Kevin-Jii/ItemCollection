@@ -9,7 +9,7 @@
       <div class="imageBox">
         <photo-provider>
           <photo-consumer
-            v-for="item in projectURL"
+            v-for="item in projectList"
             :intro="item.describe"
             :key="item.url"
             :src="item.url"
@@ -29,9 +29,10 @@ import Loading from "@/components/Loading.vue";
 import Background from "@/components/Background.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
+import projectList from "@/assets/projectList.json";
 
+import {nextTick, onBeforeUnmount, onMounted, watch} from "vue";
 const store = mainStore();
-const projectURL = ref(null);
 // 页面宽度
 const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
@@ -58,60 +59,6 @@ watch(
 );
 
 onMounted(() => {
-  projectURL.value = [
-    {
-      url: `/images/projectImage/6AE213CD-AF4A-4d2a-9E63-A21C79C8B24F.png`,
-      describe: "院区三大中心时间轴大屏",
-    },
-    {
-      url: `/images/projectImage/87D572C5-DD49-49d7-859A-689905C0B60C.png`,
-      describe: "锐浪报表统计",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-11-21_10-20-19.png`,
-      describe: "院区三大中心首页",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-11-21_10-32-32_info.png`,
-      describe: "急诊患者信息",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-11-21_10-42-20-dt.png`,
-      describe: "急诊患者动态查询",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-40-02.png`,
-      describe: "需求管理平台",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-40-24.png`,
-      describe: "需求管理平台-项目管理",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-41-02.png`,
-      describe: "需求管理平台-钉钉考勤管理",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-41-27.png`,
-      describe: "需求管理平台-特殊/复杂功能信息登记",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-41-45.png`,
-      describe: "需求管理平台-需求登记",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-42-13.png`,
-      describe: "需求管理平台-需求查看",
-    },
-    {
-      url: `/images/projectImage/Snipaste_2023-12-21_11-45-08.png`,
-      describe: "需求管理平台-需求流程",
-    },
-    {
-      url: `/images/projectImage/IMG_4651.png`,
-      describe: "三大中心-钉钉会诊通知",
-    },
-  ];
   // 自定义鼠标
   cursorInit();
 
@@ -156,13 +103,12 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 #main {
   overflow: auto;
-  ::v-deep {
-    .imageBox {
+   :deep(.imageBox){
       overflow: auto;
-      margin: 15px;
       display: grid;
       grid-template-columns: repeat(8, 1fr);
       grid-gap: 10px;
+
       @media (max-width: 720px) {
         height: 100%;
         grid-template-columns: repeat(2, 1fr);
@@ -177,7 +123,7 @@ onBeforeUnmount(() => {
         height: 100%;
         grid-template-columns: repeat(6, 1fr);
       }
-      .PhotoConsumer {
+    :deep(.PhotoConsumer) {
         height: 200px;
         width: 100%;
         border-radius: 20px;
@@ -191,7 +137,6 @@ onBeforeUnmount(() => {
           height: 100%;
           width: 100%;
         }
-      }
     }
   }
 
