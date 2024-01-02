@@ -103,43 +103,6 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 #main {
   overflow: auto;
-   :deep(.imageBox){
-      overflow: auto;
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-gap: 10px;
-
-      @media (max-width: 720px) {
-        height: 100%;
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width: 721px) and (max-width: 980px) {
-        height: 100%;
-        grid-template-columns: repeat(5, 1fr);
-      }
-
-      @media (min-width: 981px) and (max-width: 1200px) {
-        height: 100%;
-        grid-template-columns: repeat(6, 1fr);
-      }
-    :deep(.PhotoConsumer) {
-        height: 200px;
-        width: 100%;
-        border-radius: 20px;
-        padding: 15px;
-
-        border: 1px solid rgb(16, 94, 212);
-
-        box-sizing: border-box;
-
-        img {
-          height: 100%;
-          width: 100%;
-        }
-    }
-  }
-
   position: absolute;
   top: 0;
   left: 0;
@@ -199,6 +162,42 @@ onBeforeUnmount(() => {
     }
     @media (min-width: 721px) {
       display: none;
+    }
+  }
+  :deep(.imageBox) {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+
+    @media (max-width: 720px) {
+      height: 100%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 721px) and (max-width: 980px) {
+      height: 100%;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (min-width: 981px) and (max-width: 1200px) {
+      height: 100%;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  :deep(.PhotoConsumer) {
+    height: 200px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 15px;
+
+    border: 1px solid rgb(16, 94, 212);
+
+    box-sizing: border-box;
+
+    img {
+      height: 100%;
+      width: 100%;
     }
   }
 }
