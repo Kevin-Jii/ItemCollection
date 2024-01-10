@@ -20,6 +20,10 @@
     "describe": "急诊患者动态查询"
   },
   {
+    "url": "/images/projectImage/Snipaste_efwqgerqgqreq.png",
+    "describe": "急救数据大屏信息"
+  },
+  {
     "url": "/images/projectImage/Snipaste_2023-12-21_11-40-02.png",
     "describe": "需求管理平台"
   },
@@ -52,7 +56,13 @@
     "describe": "三大中心-钉钉会诊通知"
   },
   {
-    "url": "/images/projectImage/Snipaste_2024-01-03_10-31-27.png",
-    "describe": "三大中心-胸痛数据驾驶舱"
+    "url": "/images/projectImage/Snipaste_2024-01-10_10-49-45.png",
+    "describe": "医务管理-技术画像"
+  },{
+    "url": "/images/projectImage/Snipaste_2024-01-10_10-28-17.png",
+    "describe": "医务管理-医疗纠纷处理"
+  },{
+    "url": "/images/projectImage/Snipaste_hdiiodswquqwuwe.png",
+    "describe": "医务管理-试卷管理"
   }
 ]
